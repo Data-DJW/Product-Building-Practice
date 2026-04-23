@@ -115,7 +115,7 @@ class ResumeBio extends HTMLElement {
                     </div>
                 </div>
                 <div class="bio-text">
-                    <p class="greeting">Sports Professional & AI-Driven Strategist</p>
+                    <p class="greeting">Sports Professional</p>
                     <h1>Austin <br>Dongjae Won<span style="color: #0047AB">.</span></h1>
                     <p class="description">
                         An experienced sports business professional specializing in data-driven strategy and AI integration. By bridging the gap between industry expertise and modern LLM tools, I streamline complex workflows and scale business outcomes. I excel at delivering measurable growth and high ROI in fast-paced, technology-forward environments.
@@ -188,15 +188,12 @@ class ResumeCareer extends HTMLElement {
 
         this.shadowRoot.innerHTML = `
             <style>
-                :host { display: block; width: 100%; margin: 0 auto; }
+                :host { display: block; width: 100%; }
                 .career-timeline { 
                     padding: 60px 0; 
                     position: relative;
                     max-width: 1200px;
                     margin: 0 auto;
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
                 }
                 /* Central Vertical Line */
                 .career-timeline::before {
@@ -213,9 +210,8 @@ class ResumeCareer extends HTMLElement {
                     display: grid;
                     grid-template-columns: 1fr 1fr;
                     width: 100%;
-                    padding-bottom: 100px;
+                    padding-bottom: 80px;
                     position: relative;
-                    align-items: start;
                 }
                 /* Center Dot */
                 .career-item::after {
@@ -233,7 +229,7 @@ class ResumeCareer extends HTMLElement {
                 }
                 .year-side {
                     text-align: right;
-                    padding-right: 60px;
+                    padding-right: 80px; /* Stronger separation */
                 }
                 .year {
                     font-weight: 800;
@@ -243,10 +239,10 @@ class ResumeCareer extends HTMLElement {
                 }
                 .info-side {
                     text-align: left;
-                    padding-left: 60px;
+                    padding-left: 80px; /* Stronger separation */
                 }
                 .company {
-                    font-size: 1.7rem;
+                    font-size: 1.8rem;
                     font-weight: 700;
                     color: #f0f0f0;
                     margin-bottom: 5px;
@@ -256,7 +252,7 @@ class ResumeCareer extends HTMLElement {
                     font-weight: 600;
                     color: #0047AB;
                     margin-bottom: 20px;
-                    font-size: 1.1rem;
+                    font-size: 1.15rem;
                     text-transform: uppercase;
                 }
                 .points {
@@ -265,8 +261,8 @@ class ResumeCareer extends HTMLElement {
                 }
                 .points li {
                     color: #b0b0b0;
-                    font-size: 1rem;
-                    line-height: 1.6;
+                    font-size: 1.05rem;
+                    line-height: 1.7;
                     margin-bottom: 12px;
                     position: relative;
                     padding-left: 20px;

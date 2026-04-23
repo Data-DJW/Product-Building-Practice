@@ -42,12 +42,6 @@ body {
     background: var(--accent-color);
 }
 
-.app-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
 /* Header & Nav */
 .main-header {
     height: 80px;
@@ -60,11 +54,14 @@ body {
     backdrop-filter: blur(10px);
 }
 
-.nav-container {
+.header-container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
 }
 
 .logo {
@@ -98,18 +95,18 @@ body {
 }
 
 /* Sections */
-.section-container {
-    padding: 100px 0;
+.section-wrapper {
+    width: 100%;
 }
 
-.bg-dark-alt {
-    position: relative;
-    width: 100vw;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
+.section-wrapper.bg-dark-alt {
     background-color: var(--bg-alt);
+}
+
+.section-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 20px;
 }
 
 .section-header {
@@ -139,30 +136,7 @@ body {
     text-align: center;
     color: var(--text-muted);
     font-size: 0.9rem;
-}
-
-/* Common Components (Styles used by Shadow DOM if needed, but here as classes for global) */
-.btn {
-    padding: 12px 24px;
-    border-radius: 4px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: var(--transition-fast);
-    border: none;
-    font-size: 0.9rem;
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.btn-primary {
-    background-color: var(--accent-color);
-    color: white;
-}
-
-.btn-primary:hover {
-    background-color: var(--accent-hover);
-    transform: translateY(-2px);
+    background-color: var(--bg-color);
 }
 
 /* Responsive */

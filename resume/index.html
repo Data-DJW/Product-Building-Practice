@@ -3,41 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modern Resume | Cobalt & Black</title>
+    <title>Austin Dongjae Won | Resume</title>
     <link rel="stylesheet" href="style.css">
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <!-- Inter Font Family -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="app-container">
-        <header class="main-header">
-            <nav class="nav-container">
-                <div class="logo">AUSTIN<span class="dot">.</span></div>
+    <header class="main-header">
+        <div class="header-container">
+            <div class="logo">AUSTIN<span class="dot">.</span></div>
+            <nav>
                 <ul class="nav-links">
                     <li><a href="#bio">Bio</a></li>
                     <li><a href="#career">Career</a></li>
                     <li><a href="#inquiry">Contact Me</a></li>
                 </ul>
             </nav>
-        </header>
+        </div>
+    </header>
 
-        <main class="content-wrapper">
+    <main>
+        <div class="section-wrapper">
             <section id="bio" class="section-container">
                 <resume-bio></resume-bio>
             </section>
-            
-            <section id="career" class="section-container bg-dark-alt">
+        </div>
+        
+        <div class="section-wrapper bg-dark-alt">
+            <section id="career" class="section-container">
                 <div class="section-header">
                     <h2 class="section-title">Career Experience</h2>
                     <div class="title-underline"></div>
                 </div>
                 <resume-career></resume-career>
             </section>
-            
+        </div>
+        
+        <div class="section-wrapper">
             <section id="inquiry" class="section-container">
                 <div class="section-header">
                     <h2 class="section-title">Contact Me</h2>
@@ -45,13 +51,13 @@
                 </div>
                 <resume-inquiry></resume-inquiry>
             </section>
-        </main>
+        </div>
+    </main>
 
-        <footer class="main-footer">
-            <p>&copy; 2026 H1 Resume. All Rights Reserved.</p>
-        </footer>
-    </div>
-    
+    <footer class="main-footer">
+        <p>&copy; 2026 H1 Resume. All Rights Reserved.</p>
+    </footer>
+
     <script src="main.js" type="module"></script>
 </body>
 </html>

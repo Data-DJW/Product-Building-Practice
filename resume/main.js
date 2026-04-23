@@ -28,68 +28,88 @@ class ResumeBio extends HTMLElement {
                     animation: fadeIn 1s ease;
                 }
                 .profile-img-placeholder {
-                    width: 300px;
-                    height: 300px;
-                    background: linear-gradient(45deg, #111, #0047AB);
+                    width: 320px;
+                    height: 320px;
+                    background: linear-gradient(135deg, #050505, #0047AB);
                     border-radius: 20px;
                     box-shadow: 20px 20px 60px #080808, -20px -20px 60px #101010;
                     display: flex;
+                    flex-direction: column;
                     align-items: center;
                     justify-content: center;
-                    font-size: 5rem;
-                    color: rgba(255, 255, 255, 0.1);
                     position: relative;
                     overflow: hidden;
+                    color: white;
                 }
-                .profile-img-placeholder::after {
-                    content: "BIO";
-                    position: absolute;
-                    bottom: 20px;
-                    right: 20px;
-                    font-weight: 900;
-                    letter-spacing: 5px;
+                .profile-img-placeholder i {
+                    font-size: 5rem;
+                    margin-bottom: 15px;
+                    opacity: 0.3;
                 }
+                .edu-info {
+                    text-align: center;
+                    font-size: 0.8rem;
+                    padding: 0 20px;
+                }
+                .edu-info .univ { font-weight: 700; color: #0047AB; margin-bottom: 5px; }
                 .bio-text {
-                    max-width: 600px;
+                    max-width: 650px;
                 }
                 .greeting {
                     color: #0047AB;
                     font-weight: 600;
-                    letter-spacing: 2px;
+                    letter-spacing: 3px;
                     text-transform: uppercase;
                     margin-bottom: 10px;
-                    font-size: 0.9rem;
+                    font-size: 1rem;
                 }
                 h1 {
-                    font-size: 4.5rem;
+                    font-size: 4rem;
                     line-height: 1.1;
                     margin-bottom: 20px;
-                    font-weight: 700;
+                    font-weight: 800;
                     color: #f0f0f0;
+                    letter-spacing: -1px;
                 }
                 .role {
-                    font-size: 1.2rem;
-                    color: #a0a0a0;
-                    margin-bottom: 30px;
-                    font-weight: 300;
+                    font-size: 1.3rem;
+                    color: #0047AB;
+                    margin-bottom: 25px;
+                    font-weight: 600;
                 }
                 .description {
-                    font-size: 1.1rem;
+                    font-size: 1.05rem;
                     color: #d0d0d0;
+                    margin-bottom: 35px;
+                    line-height: 1.7;
+                }
+                .skills-tags {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 10px;
                     margin-bottom: 40px;
                 }
+                .tag {
+                    padding: 6px 14px;
+                    background: #111;
+                    border: 1px solid #333;
+                    border-radius: 20px;
+                    font-size: 0.85rem;
+                    color: #a0a0a0;
+                }
+                .tag.highlight { border-color: #0047AB; color: #f0f0f0; }
                 .cta-group {
                     display: flex;
                     gap: 20px;
                 }
                 .btn {
-                    padding: 15px 35px;
+                    padding: 14px 30px;
                     border-radius: 8px;
                     font-weight: 600;
                     cursor: pointer;
-                    transition: 0.3s ease;
+                    transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
                     text-decoration: none;
-                    font-size: 1rem;
+                    font-size: 0.95rem;
                 }
                 .btn-primary {
                     background-color: #0047AB;
@@ -99,51 +119,49 @@ class ResumeBio extends HTMLElement {
                 .btn-primary:hover {
                     background-color: #3373C4;
                     transform: translateY(-5px);
-                }
-                .btn-outline {
-                    background: transparent;
-                    color: #f0f0f0;
-                    border: 2px solid #333;
-                }
-                .btn-outline:hover {
-                    border-color: #0047AB;
-                    color: #0047AB;
+                    box-shadow: 0 10px 20px rgba(0, 71, 171, 0.3);
                 }
 
                 @keyframes fadeIn {
-                    from { opacity: 0; transform: translateY(20px); }
+                    from { opacity: 0; transform: translateY(30px); }
                     to { opacity: 1; transform: translateY(0); }
                 }
 
                 @media (max-width: 968px) {
-                    .bio-content {
-                        flex-direction: column;
-                        text-align: center;
-                        gap: 40px;
-                    }
-                    h1 {
-                        font-size: 3rem;
-                    }
-                    .cta-group {
-                        justify-content: center;
-                    }
+                    .bio-content { flex-direction: column; text-align: center; gap: 40px; }
+                    h1 { font-size: 3rem; }
+                    .cta-group { justify-content: center; }
+                    .skills-tags { justify-content: center; }
                 }
             </style>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
             <div class="bio-content">
                 <div class="profile-img-placeholder">
-                    <i class="fas fa-user"></i>
+                    <i class="fas fa-user-tie"></i>
+                    <div class="edu-info">
+                        <div class="univ">INDIANA UNIVERSITY</div>
+                        <div>Sports Marketing & Management</div>
+                        <div style="font-size: 0.7rem; color: #888; margin-top: 5px;">Dean's List 2021-2023</div>
+                    </div>
                 </div>
                 <div class="bio-text">
-                    <p class="greeting">안녕하세요,</p>
-                    <h1>Front-end<br>Developer</h1>
-                    <p class="role">Creative Problem Solver & User Experience Enthusiast</p>
+                    <p class="greeting">Results-Driven Professional</p>
+                    <h1>Austin <br>DONGJAE WON<span style="color: #0047AB">.</span></h1>
+                    <p class="role">AI-Driven Marketing & Data Strategy</p>
                     <p class="description">
-                        코발트 블루처럼 명확하고 깊이 있는 코드를 지향합니다. 
-                        사용자 중심의 가치를 실현하기 위해 끊임없이 도전하고 배우는 개발자입니다.
+                        Results-driven professional with a foundation in sports business and expert networking, transitioning into AI-driven marketing and data strategy. Adept at applying LLM tools and data analytics to streamline workflows and scale business outcomes in fast-moving, technology-forward environments.
                     </p>
+                    <div class="skills-tags">
+                        <span class="tag highlight">Data Analysis</span>
+                        <span class="tag highlight">Prompt Engineering</span>
+                        <span class="tag">Market Research</span>
+                        <span class="tag">Coding</span>
+                        <span class="tag">Google Analytics</span>
+                        <span class="tag">Sports Sponsorship</span>
+                    </div>
                     <div class="cta-group">
-                        <a href="#career" class="btn btn-primary">경력 보기</a>
-                        <a href="#inquiry" class="btn btn-outline">문의하기</a>
+                        <a href="#career" class="btn btn-primary">View Experience</a>
+                        <a href="#inquiry" class="btn btn-primary" style="background: transparent; border: 2px solid #333;">Contact Me</a>
                     </div>
                 </div>
             </div>
@@ -164,40 +182,54 @@ class ResumeCareer extends HTMLElement {
     render() {
         const experiences = [
             {
-                year: "2022 - Present",
-                company: "Blue Tech Solution",
-                role: "Senior Frontend Developer",
-                desc: "React와 Web Components를 활용한 대규모 기업형 대시보드 설계 및 구현."
+                year: "2025 May - Present",
+                company: "Atheneum Partners",
+                role: "Associate, Client Service",
+                points: [
+                    "Source and engage industry experts on behalf of S&P 500 companies and leading global consulting firms.",
+                    "Consistently generated over €10,000 in monthly profit, achieving 185% of target KPI through proactive client management."
+                ]
             },
             {
-                year: "2020 - 2022",
-                company: "Core Design Studio",
-                role: "Web Publisher / Junior Dev",
-                desc: "고성능 UI 인터랙션 개발 및 웹 표준 준수 프로젝트 리딩."
+                year: "2024 Jul - 2025 May",
+                company: "IMG",
+                role: "Coordinator, Golf Events",
+                points: [
+                    "Spearheaded the Green Room Program for LIV Golf Korea 2025, overseeing talent sourcing and on-site hospitality for C-suite executives.",
+                    "Managed on-course brand assets for BMW Ladies Championship and produced ROI evaluation reports.",
+                    "Coordinated media operations and player logistics for Shinhan Donghae Open 2024 (KPGA, Asian Tour, JGTO)."
+                ]
             },
             {
-                year: "2018 - 2020",
-                company: "Creative Lab",
-                role: "UI/UX Designer",
-                desc: "사용자 여정 지도 분석 및 프로토타이핑을 통한 서비스 개선."
+                year: "2023 Jan - 2024 May",
+                company: "SponsorUnited",
+                role: "Data Analytics Intern & Sponsorship Scout",
+                points: [
+                    "Leveraged R and Excel within ProTool to monitor performance metrics and sharpen revenue forecasting accuracy.",
+                    "Conducted competitive research to surface emerging sponsorship trends, informing sales and marketing strategy.",
+                    "Built technical demos and synthesized research reports to support high-stakes decision-making."
+                ]
+            },
+            {
+                year: "2023 Aug - 2023 Nov",
+                company: "Indianapolis Colts",
+                role: "Ticketing & Client Service",
+                points: [
+                    "Managed gate operations and coordinated ticketing staff for 60,000+ attendees.",
+                    "Provided guest services in suite lounges to enhance game-day experience."
+                ]
             }
         ];
 
         this.shadowRoot.innerHTML = `
             <style>
-                :host {
-                    display: block;
-                    max-width: 900px;
-                    margin: 0 auto;
-                }
-                .career-timeline {
-                    padding: 20px;
-                }
+                :host { display: block; max-width: 900px; margin: 0 auto; }
+                .career-timeline { padding: 20px; }
                 .career-item {
                     display: grid;
                     grid-template-columns: 200px 1fr;
-                    gap: 40px;
-                    padding-bottom: 60px;
+                    gap: 60px;
+                    padding-bottom: 80px;
                     position: relative;
                 }
                 .career-item:not(:last-child)::after {
@@ -207,44 +239,52 @@ class ResumeCareer extends HTMLElement {
                     top: 10px;
                     bottom: 0;
                     width: 2px;
-                    background-color: #333;
-                    margin-left: -21px;
+                    background-color: #222;
+                    margin-left: -31px;
                 }
                 .year {
-                    font-weight: 700;
+                    font-weight: 800;
                     color: #0047AB;
-                    font-size: 1.1rem;
+                    font-size: 1rem;
                     text-align: right;
+                    letter-spacing: 1px;
+                    padding-top: 5px;
                 }
                 .company {
-                    font-size: 1.4rem;
-                    font-weight: 600;
+                    font-size: 1.6rem;
+                    font-weight: 700;
                     color: #f0f0f0;
                     margin-bottom: 5px;
                 }
                 .role {
-                    font-weight: 500;
-                    color: #a0a0a0;
+                    font-weight: 600;
+                    color: #0047AB;
                     margin-bottom: 15px;
-                    font-size: 1rem;
+                    font-size: 1.1rem;
+                    text-transform: uppercase;
                 }
-                .desc {
-                    color: #d0d0d0;
-                    font-size: 0.95rem;
+                .points {
+                    list-style: none;
+                    padding: 0;
+                }
+                .points li {
+                    color: #b0b0b0;
+                    font-size: 1rem;
+                    line-height: 1.6;
+                    margin-bottom: 10px;
+                    position: relative;
+                    padding-left: 20px;
+                }
+                .points li::before {
+                    content: "→";
+                    position: absolute;
+                    left: 0;
+                    color: #0047AB;
                 }
                 @media (max-width: 768px) {
-                    .career-item {
-                        grid-template-columns: 1fr;
-                        gap: 10px;
-                        padding-left: 20px;
-                        border-left: 2px solid #0047AB;
-                    }
-                    .career-item:not(:last-child)::after {
-                        display: none;
-                    }
-                    .year {
-                        text-align: left;
-                    }
+                    .career-item { grid-template-columns: 1fr; gap: 15px; padding-left: 25px; border-left: 2px solid #0047AB; }
+                    .career-item:not(:last-child)::after { display: none; }
+                    .year { text-align: left; }
                 }
             </style>
             <div class="career-timeline">
@@ -254,7 +294,9 @@ class ResumeCareer extends HTMLElement {
                         <div class="info">
                             <div class="company">${exp.company}</div>
                             <div class="role">${exp.role}</div>
-                            <div class="desc">${exp.desc}</div>
+                            <ul class="points">
+                                ${exp.points.map(point => `<li>${point}</li>`).join('')}
+                            </ul>
                         </div>
                     </div>
                 `).join('')}
@@ -276,106 +318,81 @@ class ResumeInquiry extends HTMLElement {
     render() {
         this.shadowRoot.innerHTML = `
             <style>
-                :host {
-                    display: block;
-                    max-width: 700px;
-                    margin: 0 auto;
+                :host { display: block; max-width: 800px; margin: 0 auto; }
+                .contact-grid {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                    gap: 30px;
+                    margin-bottom: 50px;
                 }
-                .inquiry-card {
-                    background-color: #1a1a1a;
+                .contact-card {
+                    background: #111;
+                    padding: 30px;
+                    border-radius: 15px;
+                    border: 1px solid #222;
+                    text-align: center;
+                    transition: 0.3s ease;
+                }
+                .contact-card:hover { border-color: #0047AB; transform: translateY(-5px); }
+                .contact-card i { font-size: 2rem; color: #0047AB; margin-bottom: 20px; }
+                .contact-card h3 { font-size: 0.8rem; letter-spacing: 2px; color: #888; margin-bottom: 10px; }
+                .contact-card p { font-size: 1.1rem; color: #f0f0f0; word-break: break-all; }
+                .contact-card a { color: inherit; text-decoration: none; }
+                
+                .form-section {
+                    background-color: #111;
                     padding: 40px;
-                    border-radius: 12px;
-                    border: 1px solid #333;
+                    border-radius: 20px;
+                    border: 1px solid #222;
                 }
-                .form-group {
-                    margin-bottom: 25px;
-                }
-                label {
-                    display: block;
-                    margin-bottom: 10px;
-                    color: #a0a0a0;
-                    font-size: 0.9rem;
-                    font-weight: 500;
-                }
+                .form-group { margin-bottom: 20px; }
+                label { display: block; margin-bottom: 8px; color: #0047AB; font-size: 0.8rem; font-weight: 700; letter-spacing: 1px; }
                 input, textarea {
-                    width: 100%;
-                    padding: 15px;
-                    background-color: #0c0c0c;
-                    border: 1px solid #333;
-                    border-radius: 6px;
-                    color: #f0f0f0;
-                    font-family: inherit;
-                    font-size: 1rem;
-                    transition: 0.3s ease;
+                    width: 100%; padding: 15px; background: #080808; border: 1px solid #222; border-radius: 8px; color: #f0f0f0; font-family: inherit;
                 }
-                input:focus, textarea:focus {
-                    outline: none;
-                    border-color: #0047AB;
-                    box-shadow: 0 0 10px rgba(0, 71, 171, 0.2);
-                }
+                input:focus { outline: none; border-color: #0047AB; }
                 .btn-submit {
-                    width: 100%;
-                    padding: 15px;
-                    background-color: #0047AB;
-                    color: white;
-                    border: none;
-                    border-radius: 6px;
-                    font-size: 1rem;
-                    font-weight: 600;
-                    cursor: pointer;
-                    transition: 0.3s ease;
+                    width: 100%; padding: 15px; background: #0047AB; color: white; border: none; border-radius: 8px; font-weight: 700; cursor: pointer; transition: 0.3s;
                 }
-                .btn-submit:hover {
-                    background-color: #3373C4;
-                    transform: translateY(-2px);
-                }
-                .contact-info {
-                    margin-top: 40px;
-                    display: flex;
-                    justify-content: center;
-                    gap: 40px;
-                    color: #a0a0a0;
-                }
-                .contact-item {
-                    display: flex;
-                    align-items: center;
-                    gap: 10px;
-                }
-                .contact-item i {
-                    color: #0047AB;
-                }
+                .btn-submit:hover { background: #3373C4; }
             </style>
-            <div class="inquiry-card">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <i class="fas fa-phone"></i>
+                    <h3>PHONE</h3>
+                    <p>+82 10-4705-7345</p>
+                </div>
+                <div class="contact-card">
+                    <i class="fas fa-envelope"></i>
+                    <h3>EMAIL</h3>
+                    <p><a href="mailto:djwon7345@gmail.com">djwon7345@gmail.com</a></p>
+                </div>
+                <div class="contact-card">
+                    <i class="fab fa-linkedin"></i>
+                    <h3>LINKEDIN</h3>
+                    <p><a href="https://www.linkedin.com/in/datajae" target="_blank">in/datajae</a></p>
+                </div>
+            </div>
+
+            <div class="form-section">
                 <form id="contact-form">
                     <div class="form-group">
-                        <label for="name">NAME</label>
-                        <input type="text" id="name" placeholder="성함을 입력해주세요" required>
+                        <label>YOUR NAME</label>
+                        <input type="text" placeholder="Enter your name" required>
                     </div>
                     <div class="form-group">
-                        <label for="email">EMAIL</label>
-                        <input type="email" id="email" placeholder="example@email.com" required>
+                        <label>MESSAGE</label>
+                        <textarea rows="4" placeholder="How can I help you?" required></textarea>
                     </div>
-                    <div class="form-group">
-                        <label for="message">MESSAGE</label>
-                        <textarea id="message" rows="5" placeholder="프로젝트 제안이나 문의사항을 입력해주세요" required></textarea>
-                    </div>
-                    <button type="submit" class="btn-submit">메시지 보내기</button>
+                    <button type="submit" class="btn-submit">Send Message</button>
                 </form>
-
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <span>hello@modernresume.com</span>
-                    </div>
-                    <div class="contact-item">
-                        <span>+82 10 1234 5678</span>
-                    </div>
-                </div>
             </div>
         `;
 
         this.shadowRoot.querySelector('#contact-form').addEventListener('submit', (e) => {
             e.preventDefault();
-            alert('메시지가 성공적으로 전송되었습니다! (Mock Action)');
+            alert('Thank you for your message! I will get back to you soon.');
             e.target.reset();
         });
     }

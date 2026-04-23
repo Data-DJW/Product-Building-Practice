@@ -380,25 +380,19 @@ class ResumeInquiry extends HTMLElement {
             </div>
 
             <div class="form-section">
-                <form id="contact-form">
+                <form action="https://formspree.io/f/xjgjpznl" method="POST">
                     <div class="form-group">
-                        <label>YOUR NAME</label>
-                        <input type="text" placeholder="Enter your name" required>
+                        <label>YOUR EMAIL</label>
+                        <input type="email" name="email" placeholder="Enter your email address" required>
                     </div>
                     <div class="form-group">
                         <label>MESSAGE</label>
-                        <textarea rows="4" placeholder="How can I help you?" required></textarea>
+                        <textarea name="message" rows="4" placeholder="How can I help you?" required></textarea>
                     </div>
                     <button type="submit" class="btn-submit">Send Message</button>
                 </form>
             </div>
         `;
-
-        this.shadowRoot.querySelector('#contact-form').addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('Thank you for your message! I will get back to you soon.');
-            e.target.reset();
-        });
     }
 }
 

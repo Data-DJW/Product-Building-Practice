@@ -363,39 +363,81 @@ class ResumeInquiry extends HTMLElement {
     render() {
         this.shadowRoot.innerHTML = `
             <style>
-                :host { display: block; max-width: 800px; margin: 0 auto; }
+                :host { 
+                    display: block; 
+                    width: 100%; 
+                }
+                .inquiry-container {
+                    display: flex;
+                    justify-content: center;
+                    width: 100%;
+                    padding: 20px 0;
+                }
                 .form-section {
                     background-color: #111;
                     padding: 40px;
                     border-radius: 20px;
                     border: 1px solid #222;
+                    width: 100%;
                     max-width: 600px;
-                    margin: 0 auto;
                     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
                 }
-                .form-group { margin-bottom: 20px; }
-                label { display: block; margin-bottom: 8px; color: #0047AB; font-size: 0.8rem; font-weight: 700; letter-spacing: 1px; }
+                .form-group { margin-bottom: 25px; }
+                label { 
+                    display: block; 
+                    margin-bottom: 10px; 
+                    color: #0047AB; 
+                    font-size: 0.8rem; 
+                    font-weight: 700; 
+                    letter-spacing: 1px; 
+                }
                 input, textarea {
-                    width: 100%; padding: 15px; background: #080808; border: 1px solid #222; border-radius: 8px; color: #f0f0f0; font-family: inherit;
+                    width: 100%; 
+                    padding: 15px; 
+                    background: #080808; 
+                    border: 1px solid #222; 
+                    border-radius: 8px; 
+                    color: #f0f0f0; 
+                    font-family: inherit;
+                    transition: border-color 0.3s;
                 }
-                input:focus { outline: none; border-color: #0047AB; }
+                input:focus, textarea:focus { 
+                    outline: none; 
+                    border-color: #0047AB; 
+                }
                 .btn-submit {
-                    width: 100%; padding: 15px; background: #0047AB; color: white; border: none; border-radius: 8px; font-weight: 700; cursor: pointer; transition: 0.3s;
+                    width: 100%; 
+                    padding: 18px; 
+                    background: #0047AB; 
+                    color: white; 
+                    border: none; 
+                    border-radius: 8px; 
+                    font-weight: 700; 
+                    cursor: pointer; 
+                    transition: 0.3s;
+                    font-size: 1rem;
+                    text-transform: uppercase;
+                    letter-spacing: 1px;
                 }
-                .btn-submit:hover { background: #3373C4; }
+                .btn-submit:hover { 
+                    background: #3373C4; 
+                    box-shadow: 0 5px 15px rgba(0, 71, 171, 0.4);
+                }
             </style>
-            <div class="form-section">
-                <form action="https://formspree.io/f/xjgjpznl" method="POST">
-                    <div class="form-group">
-                        <label>YOUR EMAIL</label>
-                        <input type="email" name="email" placeholder="Enter your email address" required>
-                    </div>
-                    <div class="form-group">
-                        <label>MESSAGE</label>
-                        <textarea name="message" rows="4" placeholder="How can I help you?" required></textarea>
-                    </div>
-                    <button type="submit" class="btn-submit">Send Message</button>
-                </form>
+            <div class="inquiry-container">
+                <div class="form-section">
+                    <form action="https://formspree.io/f/xjgjpznl" method="POST">
+                        <div class="form-group">
+                            <label>YOUR EMAIL</label>
+                            <input type="email" name="email" placeholder="Enter your email address" required>
+                        </div>
+                        <div class="form-group">
+                            <label>MESSAGE</label>
+                            <textarea name="message" rows="5" placeholder="How can I help you?" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">Send Message</button>
+                    </form>
+                </div>
             </div>
         `;
     }

@@ -147,7 +147,6 @@ class ResumeBio extends HTMLElement {
                 <div class="bio-text">
                     <p class="greeting">Sports Professional & AI-Driven Strategist</p>
                     <h1>Austin <br>Dongjae Won<span style="color: #0047AB">.</span></h1>
-                    <p class="role">AI-Driven Marketing & Data Strategy</p>
                     <p class="description">
                         An experienced sports business professional specializing in data-driven strategy and AI integration. By bridging the gap between industry expertise and modern LLM tools, I streamline complex workflows and scale business outcomes. I excel at delivering measurable growth and high ROI in fast-paced, technology-forward environments.
                     </p>
@@ -219,51 +218,59 @@ class ResumeCareer extends HTMLElement {
 
         this.shadowRoot.innerHTML = `
             <style>
-                :host { display: block; max-width: 1000px; margin: 0 auto; }
+                :host { display: block; width: 100%; margin: 0 auto; }
                 .career-timeline { 
-                    padding: 40px 20px; 
+                    padding: 40px 0; 
                     position: relative;
+                    max-width: 1200px;
+                    margin: 0 auto;
                 }
-                /* Center Line */
+                /* Central Vertical Line */
                 .career-timeline::before {
                     content: "";
                     position: absolute;
-                    left: 200px;
+                    left: 50%;
                     top: 0;
                     bottom: 0;
                     width: 2px;
                     background-color: #222;
+                    transform: translateX(-50%);
                 }
                 .career-item {
                     display: grid;
-                    grid-template-columns: 200px 1fr;
-                    gap: 80px; /* Increased gap from the center line */
-                    padding-bottom: 80px;
+                    grid-template-columns: 1fr 1fr;
+                    gap: 100px; /* Space between left and right side content */
+                    padding-bottom: 100px;
                     position: relative;
+                    align-items: start;
                 }
+                /* Center Dot */
                 .career-item::after {
                     content: "";
                     position: absolute;
-                    left: 200px;
+                    left: 50%;
                     top: 10px;
-                    width: 12px;
-                    height: 12px;
+                    width: 14px;
+                    height: 14px;
                     background-color: #0047AB;
-                    border: 4px solid #161616; /* Match bg-alt */
+                    border: 4px solid #161616;
                     border-radius: 50%;
                     transform: translateX(-50%);
                     z-index: 2;
                 }
+                .year-side {
+                    text-align: right;
+                    padding-right: 10px;
+                }
                 .year {
                     font-weight: 800;
                     color: #0047AB;
-                    font-size: 0.9rem;
-                    text-align: right;
+                    font-size: 1rem;
                     letter-spacing: 1px;
-                    padding-right: 30px; /* More space to the left of the line */
                 }
-                .info {
-                    padding-left: 20px; /* More space to the right of the line */
+                .info-side {
+                    text-align: left;
+                    padding-left: 10px;
                 }
                 .company {
                     font-size: 1.6rem;
@@ -274,7 +281,7 @@ class ResumeCareer extends HTMLElement {
                 .role {
                     font-weight: 600;
                     color: #0047AB;
-                    margin-bottom: 15px;
+                    margin-bottom: 20px;
                     font-size: 1.1rem;
                     text-transform: uppercase;
                 }
@@ -286,7 +293,7 @@ class ResumeCareer extends HTMLElement {
                     color: #b0b0b0;
                     font-size: 1rem;
                     line-height: 1.6;
-                    margin-bottom: 10px;
+                    margin-bottom: 12px;
                     position: relative;
                     padding-left: 20px;
                 }
@@ -296,19 +303,26 @@ class ResumeCareer extends HTMLElement {
                     left: 0;
                     color: #0047AB;
                 }
-                @media (max-width: 768px) {
-                    .career-timeline::before { left: 20px; }
-                    .career-item { grid-template-columns: 1fr; gap: 15px; padding-left: 40px; }
-                    .career-item::after { left: 20px; }
-                    .year { text-align: left; padding-right: 0; margin-bottom: 5px; }
-                    .info { padding-left: 0; }
+                @media (max-width: 900px) {
+                    .career-timeline::before { left: 30px; transform: none; }
+                    .career-item { 
+                        grid-template-columns: 1fr; 
+                        gap: 20px; 
+                        padding-left: 60px; 
+                        text-align: left;
+                    }
+                    .career-item::after { left: 30px; transform: translateX(-50%); }
+                    .year-side { text-align: left; padding-right: 0; }
+                    .info-side { padding-left: 0; }
                 }
             </style>
             <div class="career-timeline">
                 ${experiences.map(exp => `
                     <div class="career-item">
-                        <div class="year">${exp.year}</div>
-                        <div class="info">
+                        <div class="year-side">
+                            <div class="year">${exp.year}</div>
+                        </div>
+                        <div class="info-side">
                             <div class="company">${exp.company}</div>
                             <div class="role">${exp.role}</div>
                             <ul class="points">

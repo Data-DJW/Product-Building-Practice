@@ -145,23 +145,19 @@ class ResumeBio extends HTMLElement {
                     </div>
                 </div>
                 <div class="bio-text">
-                    <p class="greeting">Results-Driven Professional</p>
-                    <h1>Austin <br>DONGJAE WON<span style="color: #0047AB">.</span></h1>
-                    <p class="role">AI-Driven Marketing & Data Strategy</p>
+                    <p class="greeting">AI-Powered Marketing & Strategy</p>
+                    <h1>Austin <br>Dongjae Won<span style="color: #0047AB">.</span></h1>
+                    <p class="role">Data Strategy & Business Solutions</p>
                     <p class="description">
-                        Results-driven professional with a foundation in sports business and expert networking, transitioning into AI-driven marketing and data strategy. Adept at applying LLM tools and data analytics to streamline workflows and scale business outcomes in fast-moving, technology-forward environments.
+                        Results-driven professional with a proven track record in high-stakes sports business and client services. I specialize in bridging the gap between traditional business strategy and modern technology. By leveraging LLM tools and advanced data analytics, I streamline complex workflows and scale business outcomes. My expertise lies in integrating AI-driven insights with real-world execution to drive measurable growth and ROI in technology-forward environments.
                     </p>
                     <div class="skills-tags">
                         <span class="tag highlight">Data Analysis</span>
+                        <span class="tag highlight">AI/LLM Integration</span>
                         <span class="tag highlight">Prompt Engineering</span>
                         <span class="tag">Market Research</span>
-                        <span class="tag">Coding</span>
+                        <span class="tag">Business Strategy</span>
                         <span class="tag">Google Analytics</span>
-                        <span class="tag">Sports Sponsorship</span>
-                    </div>
-                    <div class="cta-group">
-                        <a href="#career" class="btn btn-primary">View Experience</a>
-                        <a href="#inquiry" class="btn btn-primary" style="background: transparent; border: 2px solid #333;">Contact Me</a>
                     </div>
                 </div>
             </div>
@@ -223,8 +219,21 @@ class ResumeCareer extends HTMLElement {
 
         this.shadowRoot.innerHTML = `
             <style>
-                :host { display: block; max-width: 900px; margin: 0 auto; }
-                .career-timeline { padding: 20px; }
+                :host { display: block; max-width: 1000px; margin: 0 auto; }
+                .career-timeline { 
+                    padding: 20px; 
+                    position: relative;
+                }
+                /* Center Line */
+                .career-timeline::before {
+                    content: "";
+                    position: absolute;
+                    left: 200px;
+                    top: 0;
+                    bottom: 0;
+                    width: 2px;
+                    background-color: #222;
+                }
                 .career-item {
                     display: grid;
                     grid-template-columns: 200px 1fr;
@@ -232,23 +241,26 @@ class ResumeCareer extends HTMLElement {
                     padding-bottom: 80px;
                     position: relative;
                 }
-                .career-item:not(:last-child)::after {
+                .career-item::after {
                     content: "";
                     position: absolute;
                     left: 200px;
                     top: 10px;
-                    bottom: 0;
-                    width: 2px;
-                    background-color: #222;
-                    margin-left: -31px;
+                    width: 12px;
+                    height: 12px;
+                    background-color: #0047AB;
+                    border: 4px solid #0c0c0c;
+                    border-radius: 50%;
+                    transform: translateX(-50%);
+                    z-index: 2;
                 }
                 .year {
                     font-weight: 800;
                     color: #0047AB;
-                    font-size: 1rem;
+                    font-size: 0.9rem;
                     text-align: right;
                     letter-spacing: 1px;
-                    padding-top: 5px;
+                    padding-right: 20px;
                 }
                 .company {
                     font-size: 1.6rem;
@@ -282,9 +294,10 @@ class ResumeCareer extends HTMLElement {
                     color: #0047AB;
                 }
                 @media (max-width: 768px) {
-                    .career-item { grid-template-columns: 1fr; gap: 15px; padding-left: 25px; border-left: 2px solid #0047AB; }
-                    .career-item:not(:last-child)::after { display: none; }
-                    .year { text-align: left; }
+                    .career-timeline::before { left: 20px; }
+                    .career-item { grid-template-columns: 1fr; gap: 15px; padding-left: 40px; }
+                    .career-item::after { left: 20px; }
+                    .year { text-align: left; padding-right: 0; margin-bottom: 5px; }
                 }
             </style>
             <div class="career-timeline">

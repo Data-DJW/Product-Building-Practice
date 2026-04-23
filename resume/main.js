@@ -71,12 +71,6 @@ class ResumeBio extends HTMLElement {
                     color: #f0f0f0;
                     letter-spacing: -1px;
                 }
-                .role {
-                    font-size: 1.3rem;
-                    color: #0047AB;
-                    margin-bottom: 25px;
-                    font-weight: 600;
-                }
                 .description {
                     font-size: 1.05rem;
                     color: #d0d0d0;
@@ -98,29 +92,6 @@ class ResumeBio extends HTMLElement {
                     color: #a0a0a0;
                 }
                 .tag.highlight { border-color: #0047AB; color: #f0f0f0; }
-                .cta-group {
-                    display: flex;
-                    gap: 20px;
-                }
-                .btn {
-                    padding: 14px 30px;
-                    border-radius: 8px;
-                    font-weight: 600;
-                    cursor: pointer;
-                    transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-                    text-decoration: none;
-                    font-size: 0.95rem;
-                }
-                .btn-primary {
-                    background-color: #0047AB;
-                    color: white;
-                    border: none;
-                }
-                .btn-primary:hover {
-                    background-color: #3373C4;
-                    transform: translateY(-5px);
-                    box-shadow: 0 10px 20px rgba(0, 71, 171, 0.3);
-                }
 
                 @keyframes fadeIn {
                     from { opacity: 0; transform: translateY(30px); }
@@ -130,7 +101,6 @@ class ResumeBio extends HTMLElement {
                 @media (max-width: 968px) {
                     .bio-content { flex-direction: column; text-align: center; gap: 40px; }
                     h1 { font-size: 3rem; }
-                    .cta-group { justify-content: center; }
                     .skills-tags { justify-content: center; }
                 }
             </style>
@@ -220,10 +190,13 @@ class ResumeCareer extends HTMLElement {
             <style>
                 :host { display: block; width: 100%; margin: 0 auto; }
                 .career-timeline { 
-                    padding: 40px 0; 
+                    padding: 60px 0; 
                     position: relative;
                     max-width: 1200px;
                     margin: 0 auto;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
                 }
                 /* Central Vertical Line */
                 .career-timeline::before {
@@ -233,13 +206,13 @@ class ResumeCareer extends HTMLElement {
                     top: 0;
                     bottom: 0;
                     width: 2px;
-                    background-color: #222;
+                    background-color: #333;
                     transform: translateX(-50%);
                 }
                 .career-item {
                     display: grid;
                     grid-template-columns: 1fr 1fr;
-                    gap: 100px; /* Space between left and right side content */
+                    width: 100%;
                     padding-bottom: 100px;
                     position: relative;
                     align-items: start;
@@ -250,8 +223,8 @@ class ResumeCareer extends HTMLElement {
                     position: absolute;
                     left: 50%;
                     top: 10px;
-                    width: 14px;
-                    height: 14px;
+                    width: 16px;
+                    height: 16px;
                     background-color: #0047AB;
                     border: 4px solid #161616;
                     border-radius: 50%;
@@ -260,23 +233,24 @@ class ResumeCareer extends HTMLElement {
                 }
                 .year-side {
                     text-align: right;
-                    padding-right: 10px;
+                    padding-right: 60px;
                 }
                 .year {
                     font-weight: 800;
                     color: #0047AB;
-                    font-size: 1rem;
+                    font-size: 1.1rem;
                     letter-spacing: 1px;
                 }
                 .info-side {
                     text-align: left;
-                    padding-left: 10px;
+                    padding-left: 60px;
                 }
                 .company {
-                    font-size: 1.6rem;
+                    font-size: 1.7rem;
                     font-weight: 700;
                     color: #f0f0f0;
                     margin-bottom: 5px;
+                    letter-spacing: -0.5px;
                 }
                 .role {
                     font-weight: 600;
@@ -307,12 +281,11 @@ class ResumeCareer extends HTMLElement {
                     .career-timeline::before { left: 30px; transform: none; }
                     .career-item { 
                         grid-template-columns: 1fr; 
-                        gap: 20px; 
                         padding-left: 60px; 
                         text-align: left;
                     }
                     .career-item::after { left: 30px; transform: translateX(-50%); }
-                    .year-side { text-align: left; padding-right: 0; }
+                    .year-side { text-align: left; padding-right: 0; margin-bottom: 10px; }
                     .info-side { padding-left: 0; }
                 }
             </style>

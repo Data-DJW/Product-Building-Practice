@@ -212,6 +212,19 @@ class ResumeCareer extends HTMLElement {
 
     connectedCallback() {
         this.render();
+        this.initAnimations();
+    }
+
+    initAnimations() {
+        const items = this.shadowRoot.querySelectorAll('.career-item');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, { threshold: 0.2 });
+        items.forEach(item => observer.observe(item));
     }
 
     render() {
@@ -258,7 +271,7 @@ class ResumeCareer extends HTMLElement {
 
         this.shadowRoot.innerHTML = `
             <style>
-                :host { display: block; width: 100%; margin: 0 auto; }
+                :host { display: block; width: 100%; margin: 0 auto; overflow: hidden; }
                 .career-timeline { 
                     padding: 60px 0; 
                     position: relative;
@@ -285,9 +298,23 @@ class ResumeCareer extends HTMLElement {
                     padding-bottom: 100px;
                     position: relative;
                     align-items: start;
-                    transition: 0.4s;
                 }
-                .career-item:hover .company { color: #0047AB; }
+                
+                /* Animations */
+                .year-side { 
+                    text-align: right; 
+                    padding-right: 60px;
+                    opacity: 0;
+                    transform: translateX(-100px);
+                    transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+                }
+                .info-side { 
+                    text-align: left; 
+                    padding-left: 60px;
+                    opacity: 0;
+                    transform: translateX(100px);
+                    transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+                }
                 .career-item::after {
                     content: "";
                     position: absolute;
@@ -298,17 +325,21 @@ class ResumeCareer extends HTMLElement {
                     background-color: #0047AB;
                     border: 4px solid #161616;
                     border-radius: 50%;
-                    transform: translateX(-50%);
+                    transform: translateX(-50%) scale(0);
                     z-index: 2;
-                    transition: 0.3s;
+                    transition: transform 0.6s 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
                 }
-                .career-item:hover::after {
-                    transform: translateX(-50%) scale(1.5);
-                    box-shadow: 0 0 15px #0047AB;
+
+                .career-item.animate .year-side,
+                .career-item.animate .info-side {
+                    opacity: 1;
+                    transform: translateX(0);
                 }
-                .year-side { text-align: right; padding-right: 60px; }
+                .career-item.animate::after {
+                    transform: translateX(-50%) scale(1);
+                }
+
                 .year { font-weight: 800; color: #0047AB; font-size: 1.1rem; letter-spacing: 1px; }
-                .info-side { text-align: left; padding-left: 60px; }
                 .company { font-size: 1.8rem; font-weight: 800; color: #f0f0f0; margin-bottom: 8px; letter-spacing: -0.5px; transition: 0.3s; }
                 .role { font-weight: 600; color: #0047AB; margin-bottom: 25px; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px; }
                 .points { list-style: none; padding: 0; }
@@ -319,8 +350,8 @@ class ResumeCareer extends HTMLElement {
                     .career-timeline::before { left: 30px; transform: none; }
                     .career-item { grid-template-columns: 1fr; padding-left: 60px; text-align: left; }
                     .career-item::after { left: 30px; transform: translateX(-50%); }
-                    .year-side { text-align: left; padding-right: 0; margin-bottom: 15px; }
-                    .info-side { padding-left: 0; }
+                    .year-side { text-align: left; padding-right: 0; margin-bottom: 15px; transform: translateX(-50px); }
+                    .info-side { padding-left: 0; transform: translateX(50px); }
                 }
             </style>
             <div class="career-timeline">

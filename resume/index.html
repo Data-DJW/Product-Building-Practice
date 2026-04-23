@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Austin Dongjae Won | Resume</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Inter Font Family -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="main-header">
+        <div class="header-container">
+            <div class="logo">AUSTIN<span class="dot">.</span></div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#bio">Bio</a></li>
+                    <li><a href="#career">Career</a></li>
+                    <li><a href="#inquiry">Contact Me</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="section-wrapper">
+            <section id="bio" class="section-container">
+                <resume-bio></resume-bio>
+            </section>
+        </div>
+        
+        <div class="section-wrapper bg-dark-alt">
+            <section id="career" class="section-container">
+                <div class="section-header">
+                    <h2 class="section-title">Career Experience</h2>
+                    <div class="title-underline"></div>
+                </div>
+                <resume-career></resume-career>
+            </section>
+        </div>
+        
+        <div class="section-wrapper">
+            <section id="inquiry" class="section-container">
+                <div class="section-header">
+                    <h2 class="section-title">Contact Me</h2>
+                    <div class="title-underline"></div>
+                </div>
+                <resume-inquiry></resume-inquiry>
+            </section>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <p>&copy; 2026 H1 Resume. All Rights Reserved.</p>
+    </footer>
+
+    <script src="main.js" type="module"></script>
+</body>
+</html>

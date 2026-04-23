@@ -3,60 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modern Tetris</title>
+    <title>Austin Dongjae Won | Resume</title>
     <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Inter Font Family -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="game-container">
-        <header>
-            <h1>TETRIS</h1>
-            <button id="theme-toggle" class="icon-btn">
-                <i class="fas fa-moon"></i>
-            </button>
-        </header>
+    <header class="main-header">
+        <div class="header-container">
+            <div class="logo">AUSTIN<span class="dot">.</span></div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#bio">Bio</a></li>
+                    <li><a href="#career">Career</a></li>
+                    <li><a href="#inquiry">Contact Me</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="section-wrapper">
+            <section id="bio" class="section-container">
+                <resume-bio></resume-bio>
+            </section>
+        </div>
         
-        <main>
-            <div class="board-wrapper">
-                <canvas id="tetris-board"></canvas>
-                <div id="game-overlay" class="overlay hidden">
-                    <div class="overlay-content">
-                        <h2 id="overlay-title">GAME OVER</h2>
-                        <button id="restart-btn" class="primary-btn">다시 시작</button>
-                    </div>
+        <div class="section-wrapper bg-dark-alt">
+            <section id="career" class="section-container">
+                <div class="section-header">
+                    <h2 class="section-title">Career Experience</h2>
+                    <div class="title-underline"></div>
                 </div>
-            </div>
-            
-            <aside class="side-panel">
-                <div class="panel-section">
-                    <h3>NEXT</h3>
-                    <div class="next-wrapper">
-                        <canvas id="next-piece"></canvas>
-                    </div>
+                <resume-career></resume-career>
+            </section>
+        </div>
+        
+        <div class="section-wrapper">
+            <section id="inquiry" class="section-container">
+                <div class="section-header">
+                    <h2 class="section-title">Contact Me</h2>
+                    <div class="title-underline"></div>
                 </div>
-                
-                <div class="panel-section">
-                    <div class="stat-item">
-                        <span class="label">SCORE</span>
-                        <span id="score" class="value">000000</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="label">LEVEL</span>
-                        <span id="level" class="value">1</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="label">LINES</span>
-                        <span id="lines" class="value">0</span>
-                    </div>
-                </div>
-                
-                <div class="panel-section controls">
-                    <button id="start-btn" class="primary-btn">START</button>
-                    <p class="hint">방향키: 이동/회전<br>Space: 하드 드롭</p>
-                </div>
-            </aside>
-        </main>
-    </div>
-    <script src="main.js"></script>
+                <resume-inquiry></resume-inquiry>
+            </section>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <p>&copy; 2026 H1 Resume. All Rights Reserved.</p>
+    </footer>
+
+    <a href="https://www.linkedin.com/in/datajae" target="_blank" class="floating-linkedin" title="LinkedIn Profile">
+        <i class="fab fa-linkedin"></i>
+    </a>
+
+    <script src="main.js" type="module"></script>
 </body>
 </html>

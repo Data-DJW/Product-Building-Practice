@@ -22,24 +22,53 @@ class ResumeBio extends HTMLElement {
                 }
                 .bio-content {
                     display: flex;
-                    align-items: center;
+                    align-items: flex-start;
                     gap: 60px;
                     justify-content: center;
                     animation: fadeIn 1s ease;
                 }
+                .left-column {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 30px;
+                    flex-shrink: 0;
+                }
                 .profile-img-placeholder {
-                    width: 320px;
-                    height: 320px;
+                    width: 260px;
+                    height: 260px;
                     background: #000;
                     border-radius: 20px;
-                    box-shadow: 20px 20px 60px #080808, -20px -20px 60px #101010;
+                    box-shadow: 15px 15px 40px #080808, -15px -15px 40px #101010;
                     display: flex;
                     align-items: center;
                     justify-content: center;
                     position: relative;
                     overflow: hidden;
-                    border: 3px solid #0047AB; /* 강조된 코발트 블루 테두리 */
+                    border: 3px solid #0047AB;
                 }
+                .education-box {
+                    width: 100%;
+                    padding: 20px;
+                    background: #111;
+                    border-radius: 15px;
+                    border: 1px solid #222;
+                }
+                .edu-title {
+                    color: #0047AB;
+                    font-size: 0.8rem;
+                    font-weight: 800;
+                    letter-spacing: 2px;
+                    margin-bottom: 12px;
+                    text-transform: uppercase;
+                }
+                .edu-item { margin-bottom: 15px; }
+                .edu-item:last-child { margin-bottom: 0; }
+                .school { font-weight: 700; color: #f0f0f0; font-size: 0.95rem; margin-bottom: 4px; }
+                .period { font-size: 0.8rem; color: #888; margin-bottom: 6px; }
+                .major { font-size: 0.85rem; color: #ccc; }
+                .minor { font-size: 0.8rem; color: #777; margin-top: 2px; }
+
                 .profile-img-placeholder img {
                     width: 100%;
                     height: 100%;
@@ -48,15 +77,16 @@ class ResumeBio extends HTMLElement {
                     position: absolute;
                     top: 0;
                     left: 0;
-                    z-index: 10; /* 가장 위로 올림 */
+                    z-index: 10;
                 }
                 .profile-img-placeholder i {
-                    font-size: 5rem;
+                    font-size: 4rem;
                     color: #222;
                     z-index: 1;
                 }
                 .bio-text {
                     max-width: 650px;
+                    padding-top: 10px;
                 }
                 .greeting {
                     color: #0047AB;
@@ -102,17 +132,28 @@ class ResumeBio extends HTMLElement {
                 }
 
                 @media (max-width: 968px) {
-                    .bio-content { flex-direction: column; text-align: center; gap: 40px; }
+                    .bio-content { flex-direction: column; text-align: center; gap: 40px; align-items: center; }
+                    .left-column { width: 100%; max-width: 320px; }
                     h1 { font-size: 3rem; }
                     .skills-tags { justify-content: center; }
                 }
             </style>
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
             <div class="bio-content">
-                <div class="profile-img-placeholder">
-                    <!-- 이미지가 있을 경우 가장 우선적으로 표시됨 -->
-                    <img src="./profile.jpg" alt="Austin Dongjae Won" onerror="this.style.display='none'">
-                    <i class="fas fa-user-tie"></i>
+                <div class="left-column">
+                    <div class="profile-img-placeholder">
+                        <img src="./profile.jpg" alt="Austin Dongjae Won" onerror="this.style.display='none'">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <div class="education-box">
+                        <div class="edu-title">Education</div>
+                        <div class="edu-item">
+                            <div class="school">Indiana University Bloomington</div>
+                            <div class="period">2018 - 2024</div>
+                            <div class="major">B.S. in Sports Marketing & Management</div>
+                            <div class="minor">Minor in Business (Kelley)</div>
+                        </div>
+                    </div>
                 </div>
                 <div class="bio-text">
                     <p class="greeting">Sports Professional</p>
@@ -323,31 +364,14 @@ class ResumeInquiry extends HTMLElement {
         this.shadowRoot.innerHTML = `
             <style>
                 :host { display: block; max-width: 800px; margin: 0 auto; }
-                .contact-grid {
-                    display: grid;
-                    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-                    gap: 30px;
-                    margin-bottom: 50px;
-                }
-                .contact-card {
-                    background: #111;
-                    padding: 30px;
-                    border-radius: 15px;
-                    border: 1px solid #222;
-                    text-align: center;
-                    transition: 0.3s ease;
-                }
-                .contact-card:hover { border-color: #0047AB; transform: translateY(-5px); }
-                .contact-card i { font-size: 2rem; color: #0047AB; margin-bottom: 20px; }
-                .contact-card h3 { font-size: 0.8rem; letter-spacing: 2px; color: #888; margin-bottom: 10px; }
-                .contact-card p { font-size: 1.1rem; color: #f0f0f0; word-break: break-all; }
-                .contact-card a { color: inherit; text-decoration: none; }
-                
                 .form-section {
                     background-color: #111;
                     padding: 40px;
                     border-radius: 20px;
                     border: 1px solid #222;
+                    max-width: 600px;
+                    margin: 0 auto;
+                    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
                 }
                 .form-group { margin-bottom: 20px; }
                 label { display: block; margin-bottom: 8px; color: #0047AB; font-size: 0.8rem; font-weight: 700; letter-spacing: 1px; }
@@ -360,25 +384,6 @@ class ResumeInquiry extends HTMLElement {
                 }
                 .btn-submit:hover { background: #3373C4; }
             </style>
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-            <div class="contact-grid">
-                <div class="contact-card">
-                    <i class="fas fa-phone"></i>
-                    <h3>PHONE</h3>
-                    <p>+82 10-4705-7345</p>
-                </div>
-                <div class="contact-card">
-                    <i class="fas fa-envelope"></i>
-                    <h3>EMAIL</h3>
-                    <p><a href="mailto:djwon7345@gmail.com">djwon7345@gmail.com</a></p>
-                </div>
-                <div class="contact-card">
-                    <i class="fab fa-linkedin"></i>
-                    <h3>LINKEDIN</h3>
-                    <p><a href="https://www.linkedin.com/in/datajae" target="_blank">in/datajae</a></p>
-                </div>
-            </div>
-
             <div class="form-section">
                 <form action="https://formspree.io/f/xjgjpznl" method="POST">
                     <div class="form-group">

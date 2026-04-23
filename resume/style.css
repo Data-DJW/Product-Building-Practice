@@ -139,6 +139,32 @@ body {
     background-color: var(--bg-color);
 }
 
+/* Floating LinkedIn Icon */
+.floating-linkedin {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 45px;
+    height: 45px;
+    background-color: var(--accent-color);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(0, 71, 171, 0.4);
+    transition: var(--transition-fast);
+    z-index: 1000;
+}
+
+.floating-linkedin:hover {
+    background-color: var(--accent-hover);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 71, 171, 0.6);
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     .nav-links {
@@ -147,5 +173,13 @@ body {
     
     .section-title {
         font-size: 2rem;
+    }
+
+    .floating-linkedin {
+        bottom: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+        font-size: 1.3rem;
     }
 }

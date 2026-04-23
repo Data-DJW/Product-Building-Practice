@@ -30,45 +30,31 @@ class ResumeBio extends HTMLElement {
                 .profile-img-placeholder {
                     width: 320px;
                     height: 320px;
-                    background: #111;
+                    background: #000;
                     border-radius: 20px;
                     box-shadow: 20px 20px 60px #080808, -20px -20px 60px #101010;
                     display: flex;
-                    flex-direction: column;
                     align-items: center;
                     justify-content: center;
                     position: relative;
                     overflow: hidden;
-                    color: white;
-                    border: 1px solid #222;
+                    border: 3px solid #0047AB; /* 강조된 코발트 블루 테두리 */
                 }
                 .profile-img-placeholder img {
                     width: 100%;
                     height: 100%;
                     object-fit: cover;
+                    display: block;
                     position: absolute;
                     top: 0;
                     left: 0;
-                    z-index: 1;
+                    z-index: 10; /* 가장 위로 올림 */
                 }
                 .profile-img-placeholder i {
                     font-size: 5rem;
-                    opacity: 0.2;
-                    z-index: 0;
+                    color: #222;
+                    z-index: 1;
                 }
-                .edu-info {
-                    text-align: center;
-                    font-size: 0.8rem;
-                    padding: 15px 20px;
-                    z-index: 2;
-                    background: rgba(12, 12, 12, 0.8);
-                    width: 100%;
-                    position: absolute;
-                    bottom: 0;
-                    box-sizing: border-box;
-                    backdrop-filter: blur(5px);
-                }
-                .edu-info .univ { font-weight: 700; color: #0047AB; margin-bottom: 5px; }
                 .bio-text {
                     max-width: 650px;
                 }
@@ -124,13 +110,9 @@ class ResumeBio extends HTMLElement {
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
             <div class="bio-content">
                 <div class="profile-img-placeholder">
-                    <img src="profile.jpg" alt="Austin Dongjae Won">
+                    <!-- 이미지가 있을 경우 가장 우선적으로 표시됨 -->
+                    <img src="./profile.jpg" alt="Austin Dongjae Won" onerror="this.style.display='none'">
                     <i class="fas fa-user-tie"></i>
-                    <div class="edu-info">
-                        <div class="univ">INDIANA UNIVERSITY</div>
-                        <div>Sports Marketing & Management</div>
-                        <div style="font-size: 0.7rem; color: #888; margin-top: 5px;">Dean's List 2021-2023</div>
-                    </div>
                 </div>
                 <div class="bio-text">
                     <p class="greeting">Sports Professional</p>

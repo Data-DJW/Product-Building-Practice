@@ -25,7 +25,9 @@ class ResumeBio extends HTMLElement {
                     align-items: flex-start;
                     gap: 60px;
                     justify-content: center;
-                    animation: fadeIn 1s ease;
+                    opacity: 0;
+                    transform: translateY(20px);
+                    animation: fadeInUp 1s forwards ease-out;
                 }
                 .left-column {
                     display: flex;
@@ -46,20 +48,29 @@ class ResumeBio extends HTMLElement {
                     position: relative;
                     overflow: hidden;
                     border: 3px solid #0047AB;
+                    transition: transform 0.3s ease;
+                }
+                .profile-img-placeholder:hover {
+                    transform: scale(1.03) rotate(-1deg);
                 }
                 .education-box {
                     width: 100%;
-                    padding: 20px;
+                    padding: 25px;
                     background: #111;
                     border-radius: 15px;
                     border: 1px solid #222;
+                    transition: 0.3s;
+                }
+                .education-box:hover {
+                    border-color: #0047AB;
+                    box-shadow: 0 10px 30px rgba(0, 71, 171, 0.2);
                 }
                 .edu-title {
                     color: #0047AB;
                     font-size: 0.8rem;
                     font-weight: 800;
                     letter-spacing: 2px;
-                    margin-bottom: 12px;
+                    margin-bottom: 15px;
                     text-transform: uppercase;
                 }
                 .edu-item { margin-bottom: 15px; }
@@ -91,50 +102,68 @@ class ResumeBio extends HTMLElement {
                 .greeting {
                     color: #0047AB;
                     font-weight: 600;
-                    letter-spacing: 3px;
+                    letter-spacing: 4px;
                     text-transform: uppercase;
-                    margin-bottom: 10px;
-                    font-size: 1rem;
+                    margin-bottom: 15px;
+                    font-size: 0.9rem;
+                    display: block;
+                    animation: slideInLeft 0.8s both;
                 }
                 h1 {
-                    font-size: 4rem;
-                    line-height: 1.1;
-                    margin-bottom: 20px;
+                    font-size: 4.5rem;
+                    line-height: 1;
+                    margin-bottom: 25px;
                     font-weight: 800;
                     color: #f0f0f0;
-                    letter-spacing: -1px;
+                    letter-spacing: -2px;
+                    animation: slideInLeft 0.8s 0.2s both;
                 }
                 .description {
-                    font-size: 1.05rem;
+                    font-size: 1.1rem;
                     color: #d0d0d0;
-                    margin-bottom: 35px;
-                    line-height: 1.7;
+                    margin-bottom: 40px;
+                    line-height: 1.8;
+                    animation: slideInLeft 0.8s 0.4s both;
                 }
                 .skills-tags {
                     display: flex;
                     flex-wrap: wrap;
-                    gap: 10px;
+                    gap: 12px;
                     margin-bottom: 40px;
+                    animation: slideInLeft 0.8s 0.6s both;
                 }
                 .tag {
-                    padding: 6px 14px;
+                    padding: 8px 18px;
                     background: #111;
                     border: 1px solid #333;
-                    border-radius: 20px;
+                    border-radius: 25px;
                     font-size: 0.85rem;
                     color: #a0a0a0;
+                    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                    cursor: default;
+                }
+                .tag:hover {
+                    background: var(--accent-color, #0047AB);
+                    color: #fff;
+                    transform: translateY(-5px) scale(1.1);
+                    border-color: var(--accent-color, #0047AB);
+                    box-shadow: 0 10px 20px rgba(0, 71, 171, 0.3);
                 }
                 .tag.highlight { border-color: #0047AB; color: #f0f0f0; }
 
-                @keyframes fadeIn {
-                    from { opacity: 0; transform: translateY(30px); }
+                @keyframes fadeInUp {
+                    from { opacity: 0; transform: translateY(40px); }
                     to { opacity: 1; transform: translateY(0); }
+                }
+                @keyframes slideInLeft {
+                    from { opacity: 0; transform: translateX(-30px); }
+                    to { opacity: 1; transform: translateX(0); }
                 }
 
                 @media (max-width: 968px) {
                     .bio-content { flex-direction: column; text-align: center; gap: 40px; align-items: center; }
                     .left-column { width: 100%; max-width: 320px; }
-                    h1 { font-size: 3rem; }
+                    h1 { font-size: 3.2rem; }
                     .skills-tags { justify-content: center; }
                 }
             </style>
@@ -156,7 +185,7 @@ class ResumeBio extends HTMLElement {
                     </div>
                 </div>
                 <div class="bio-text">
-                    <p class="greeting">Sports Professional</p>
+                    <span class="greeting">Sports Professional</span>
                     <h1>Austin <br>Dongjae Won<span style="color: #0047AB">.</span></h1>
                     <p class="description">
                         An experienced sports business professional specializing in data-driven strategy and AI integration. By bridging the gap between industry expertise and modern LLM tools, I streamline complex workflows and scale business outcomes. I excel at delivering measurable growth and high ROI in fast-paced, technology-forward environments.
@@ -239,7 +268,6 @@ class ResumeCareer extends HTMLElement {
                     flex-direction: column;
                     align-items: center;
                 }
-                /* Central Vertical Line */
                 .career-timeline::before {
                     content: "";
                     position: absolute;
@@ -257,8 +285,9 @@ class ResumeCareer extends HTMLElement {
                     padding-bottom: 100px;
                     position: relative;
                     align-items: start;
+                    transition: 0.4s;
                 }
-                /* Center Dot */
+                .career-item:hover .company { color: #0047AB; }
                 .career-item::after {
                     content: "";
                     position: absolute;
@@ -271,62 +300,26 @@ class ResumeCareer extends HTMLElement {
                     border-radius: 50%;
                     transform: translateX(-50%);
                     z-index: 2;
+                    transition: 0.3s;
                 }
-                .year-side {
-                    text-align: right;
-                    padding-right: 60px;
+                .career-item:hover::after {
+                    transform: translateX(-50%) scale(1.5);
+                    box-shadow: 0 0 15px #0047AB;
                 }
-                .year {
-                    font-weight: 800;
-                    color: #0047AB;
-                    font-size: 1.1rem;
-                    letter-spacing: 1px;
-                }
-                .info-side {
-                    text-align: left;
-                    padding-left: 60px;
-                }
-                .company {
-                    font-size: 1.7rem;
-                    font-weight: 700;
-                    color: #f0f0f0;
-                    margin-bottom: 5px;
-                    letter-spacing: -0.5px;
-                }
-                .role {
-                    font-weight: 600;
-                    color: #0047AB;
-                    margin-bottom: 20px;
-                    font-size: 1.1rem;
-                    text-transform: uppercase;
-                }
-                .points {
-                    list-style: none;
-                    padding: 0;
-                }
-                .points li {
-                    color: #b0b0b0;
-                    font-size: 1rem;
-                    line-height: 1.6;
-                    margin-bottom: 12px;
-                    position: relative;
-                    padding-left: 20px;
-                }
-                .points li::before {
-                    content: "→";
-                    position: absolute;
-                    left: 0;
-                    color: #0047AB;
-                }
+                .year-side { text-align: right; padding-right: 60px; }
+                .year { font-weight: 800; color: #0047AB; font-size: 1.1rem; letter-spacing: 1px; }
+                .info-side { text-align: left; padding-left: 60px; }
+                .company { font-size: 1.8rem; font-weight: 800; color: #f0f0f0; margin-bottom: 8px; letter-spacing: -0.5px; transition: 0.3s; }
+                .role { font-weight: 600; color: #0047AB; margin-bottom: 25px; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px; }
+                .points { list-style: none; padding: 0; }
+                .points li { color: #b0b0b0; font-size: 1rem; line-height: 1.7; margin-bottom: 15px; position: relative; padding-left: 25px; }
+                .points li::before { content: "→"; position: absolute; left: 0; color: #0047AB; font-weight: bold; }
+
                 @media (max-width: 900px) {
                     .career-timeline::before { left: 30px; transform: none; }
-                    .career-item { 
-                        grid-template-columns: 1fr; 
-                        padding-left: 60px; 
-                        text-align: left;
-                    }
+                    .career-item { grid-template-columns: 1fr; padding-left: 60px; text-align: left; }
                     .career-item::after { left: 30px; transform: translateX(-50%); }
-                    .year-side { text-align: left; padding-right: 0; margin-bottom: 10px; }
+                    .year-side { text-align: left; padding-right: 0; margin-bottom: 15px; }
                     .info-side { padding-left: 0; }
                 }
             </style>
@@ -363,66 +356,31 @@ class ResumeInquiry extends HTMLElement {
     render() {
         this.shadowRoot.innerHTML = `
             <style>
-                :host { 
-                    display: block; 
-                    width: 100%; 
-                }
-                .inquiry-container {
-                    display: flex;
-                    justify-content: center;
-                    width: 100%;
-                    padding: 20px 0;
-                }
+                :host { display: block; width: 100%; }
+                .inquiry-container { display: flex; justify-content: center; width: 100%; padding: 20px 0; }
                 .form-section {
                     background-color: #111;
-                    padding: 40px;
+                    padding: 50px;
                     border-radius: 20px;
                     border: 1px solid #222;
                     width: 100%;
-                    max-width: 600px;
-                    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+                    max-width: 650px;
+                    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+                    transition: 0.4s;
                 }
-                .form-group { margin-bottom: 25px; }
-                label { 
-                    display: block; 
-                    margin-bottom: 10px; 
-                    color: #0047AB; 
-                    font-size: 0.8rem; 
-                    font-weight: 700; 
-                    letter-spacing: 1px; 
-                }
+                .form-section:hover { border-color: #0047AB; transform: translateY(-5px); }
+                .form-group { margin-bottom: 30px; }
+                label { display: block; margin-bottom: 12px; color: #0047AB; font-size: 0.85rem; font-weight: 800; letter-spacing: 2px; }
                 input, textarea {
-                    width: 100%; 
-                    padding: 15px; 
-                    background: #080808; 
-                    border: 1px solid #222; 
-                    border-radius: 8px; 
-                    color: #f0f0f0; 
-                    font-family: inherit;
-                    transition: border-color 0.3s;
+                    width: 100%; padding: 18px; background: #080808; border: 1px solid #222; border-radius: 12px; color: #f0f0f0; font-family: inherit;
+                    transition: all 0.3s;
                 }
-                input:focus, textarea:focus { 
-                    outline: none; 
-                    border-color: #0047AB; 
-                }
+                input:focus, textarea:focus { outline: none; border-color: #0047AB; background: #0c0c0c; box-shadow: 0 0 15px rgba(0, 71, 171, 0.2); }
                 .btn-submit {
-                    width: 100%; 
-                    padding: 18px; 
-                    background: #0047AB; 
-                    color: white; 
-                    border: none; 
-                    border-radius: 8px; 
-                    font-weight: 700; 
-                    cursor: pointer; 
-                    transition: 0.3s;
-                    font-size: 1rem;
-                    text-transform: uppercase;
-                    letter-spacing: 1px;
+                    width: 100%; padding: 20px; background: #0047AB; color: white; border: none; border-radius: 12px; font-weight: 800; cursor: pointer; transition: 0.4s;
+                    font-size: 1.1rem; text-transform: uppercase; letter-spacing: 2px;
                 }
-                .btn-submit:hover { 
-                    background: #3373C4; 
-                    box-shadow: 0 5px 15px rgba(0, 71, 171, 0.4);
-                }
+                .btn-submit:hover { background: #3373C4; transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0, 71, 171, 0.4); }
             </style>
             <div class="inquiry-container">
                 <div class="form-section">
@@ -433,7 +391,7 @@ class ResumeInquiry extends HTMLElement {
                         </div>
                         <div class="form-group">
                             <label>MESSAGE</label>
-                            <textarea name="message" rows="5" placeholder="How can I help you?" required></textarea>
+                            <textarea name="message" rows="6" placeholder="How can I help you?" required></textarea>
                         </div>
                         <button type="submit" class="btn-submit">Send Message</button>
                     </form>
@@ -447,3 +405,23 @@ class ResumeInquiry extends HTMLElement {
 customElements.define('resume-bio', ResumeBio);
 customElements.define('resume-career', ResumeCareer);
 customElements.define('resume-inquiry', ResumeInquiry);
+
+/**
+ * Scroll Reveal Animation Logic
+ */
+const observerOptions = {
+    threshold: 0.15
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+        }
+    });
+}, observerOptions);
+
+document.addEventListener('DOMContentLoaded', () => {
+    const reveals = document.querySelectorAll('.reveal');
+    reveals.forEach(el => observer.observe(el));
+});

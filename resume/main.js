@@ -30,7 +30,7 @@ class ResumeBio extends HTMLElement {
                 .profile-img-placeholder {
                     width: 320px;
                     height: 320px;
-                    background: linear-gradient(135deg, #050505, #0047AB);
+                    background: #111;
                     border-radius: 20px;
                     box-shadow: 20px 20px 60px #080808, -20px -20px 60px #101010;
                     display: flex;
@@ -40,16 +40,33 @@ class ResumeBio extends HTMLElement {
                     position: relative;
                     overflow: hidden;
                     color: white;
+                    border: 1px solid #222;
+                }
+                .profile-img-placeholder img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    z-index: 1;
                 }
                 .profile-img-placeholder i {
                     font-size: 5rem;
-                    margin-bottom: 15px;
-                    opacity: 0.3;
+                    opacity: 0.2;
+                    z-index: 0;
                 }
                 .edu-info {
                     text-align: center;
                     font-size: 0.8rem;
-                    padding: 0 20px;
+                    padding: 15px 20px;
+                    z-index: 2;
+                    background: rgba(12, 12, 12, 0.8);
+                    width: 100%;
+                    position: absolute;
+                    bottom: 0;
+                    box-sizing: border-box;
+                    backdrop-filter: blur(5px);
                 }
                 .edu-info .univ { font-weight: 700; color: #0047AB; margin-bottom: 5px; }
                 .bio-text {
@@ -107,6 +124,7 @@ class ResumeBio extends HTMLElement {
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
             <div class="bio-content">
                 <div class="profile-img-placeholder">
+                    <img src="profile.jpg" alt="Austin Dongjae Won">
                     <i class="fas fa-user-tie"></i>
                     <div class="edu-info">
                         <div class="univ">INDIANA UNIVERSITY</div>
@@ -188,12 +206,15 @@ class ResumeCareer extends HTMLElement {
 
         this.shadowRoot.innerHTML = `
             <style>
-                :host { display: block; width: 100%; }
+                :host { display: block; width: 100%; margin: 0 auto; }
                 .career-timeline { 
                     padding: 60px 0; 
                     position: relative;
                     max-width: 1200px;
                     margin: 0 auto;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
                 }
                 /* Central Vertical Line */
                 .career-timeline::before {
@@ -210,8 +231,9 @@ class ResumeCareer extends HTMLElement {
                     display: grid;
                     grid-template-columns: 1fr 1fr;
                     width: 100%;
-                    padding-bottom: 80px;
+                    padding-bottom: 100px;
                     position: relative;
+                    align-items: start;
                 }
                 /* Center Dot */
                 .career-item::after {
@@ -229,7 +251,7 @@ class ResumeCareer extends HTMLElement {
                 }
                 .year-side {
                     text-align: right;
-                    padding-right: 80px; /* Stronger separation */
+                    padding-right: 60px;
                 }
                 .year {
                     font-weight: 800;
@@ -239,10 +261,10 @@ class ResumeCareer extends HTMLElement {
                 }
                 .info-side {
                     text-align: left;
-                    padding-left: 80px; /* Stronger separation */
+                    padding-left: 60px;
                 }
                 .company {
-                    font-size: 1.8rem;
+                    font-size: 1.7rem;
                     font-weight: 700;
                     color: #f0f0f0;
                     margin-bottom: 5px;
@@ -252,7 +274,7 @@ class ResumeCareer extends HTMLElement {
                     font-weight: 600;
                     color: #0047AB;
                     margin-bottom: 20px;
-                    font-size: 1.15rem;
+                    font-size: 1.1rem;
                     text-transform: uppercase;
                 }
                 .points {
@@ -261,8 +283,8 @@ class ResumeCareer extends HTMLElement {
                 }
                 .points li {
                     color: #b0b0b0;
-                    font-size: 1.05rem;
-                    line-height: 1.7;
+                    font-size: 1rem;
+                    line-height: 1.6;
                     margin-bottom: 12px;
                     position: relative;
                     padding-left: 20px;

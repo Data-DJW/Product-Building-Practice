@@ -145,11 +145,11 @@ class ResumeBio extends HTMLElement {
                     </div>
                 </div>
                 <div class="bio-text">
-                    <p class="greeting">AI-Powered Marketing & Strategy</p>
+                    <p class="greeting">Sports Professional & AI-Driven Strategist</p>
                     <h1>Austin <br>Dongjae Won<span style="color: #0047AB">.</span></h1>
-                    <p class="role">Data Strategy & Business Solutions</p>
+                    <p class="role">AI-Driven Marketing & Data Strategy</p>
                     <p class="description">
-                        Results-driven professional with a proven track record in high-stakes sports business and client services. I specialize in bridging the gap between traditional business strategy and modern technology. By leveraging LLM tools and advanced data analytics, I streamline complex workflows and scale business outcomes. My expertise lies in integrating AI-driven insights with real-world execution to drive measurable growth and ROI in technology-forward environments.
+                        An experienced sports business professional specializing in data-driven strategy and AI integration. By bridging the gap between industry expertise and modern LLM tools, I streamline complex workflows and scale business outcomes. I excel at delivering measurable growth and high ROI in fast-paced, technology-forward environments.
                     </p>
                     <div class="skills-tags">
                         <span class="tag highlight">Data Analysis</span>
@@ -221,7 +221,7 @@ class ResumeCareer extends HTMLElement {
             <style>
                 :host { display: block; max-width: 1000px; margin: 0 auto; }
                 .career-timeline { 
-                    padding: 20px; 
+                    padding: 40px 20px; 
                     position: relative;
                 }
                 /* Center Line */
@@ -237,7 +237,7 @@ class ResumeCareer extends HTMLElement {
                 .career-item {
                     display: grid;
                     grid-template-columns: 200px 1fr;
-                    gap: 60px;
+                    gap: 80px; /* Increased gap from the center line */
                     padding-bottom: 80px;
                     position: relative;
                 }
@@ -249,7 +249,7 @@ class ResumeCareer extends HTMLElement {
                     width: 12px;
                     height: 12px;
                     background-color: #0047AB;
-                    border: 4px solid #0c0c0c;
+                    border: 4px solid #161616; /* Match bg-alt */
                     border-radius: 50%;
                     transform: translateX(-50%);
                     z-index: 2;
@@ -260,7 +260,10 @@ class ResumeCareer extends HTMLElement {
                     font-size: 0.9rem;
                     text-align: right;
                     letter-spacing: 1px;
-                    padding-right: 20px;
+                    padding-right: 30px; /* More space to the left of the line */
+                }
+                .info {
+                    padding-left: 20px; /* More space to the right of the line */
                 }
                 .company {
                     font-size: 1.6rem;
@@ -298,6 +301,7 @@ class ResumeCareer extends HTMLElement {
                     .career-item { grid-template-columns: 1fr; gap: 15px; padding-left: 40px; }
                     .career-item::after { left: 20px; }
                     .year { text-align: left; padding-right: 0; margin-bottom: 5px; }
+                    .info { padding-left: 0; }
                 }
             </style>
             <div class="career-timeline">
